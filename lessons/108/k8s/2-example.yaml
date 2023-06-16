@@ -8,8 +8,8 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   annotations:
-    iam.gke.io/gcp-service-account: service-a@devops-v4.iam.gserviceaccount.com
-  name: service-a
+    iam.gke.io/gcp-service-account: service-staging@br-gcp-piwi-production.iam.gserviceaccount.com
+  name: service-staging
   namespace: staging
 ---
 apiVersion: apps/v1
@@ -27,7 +27,7 @@ spec:
       labels:
         app: gcloud
     spec:
-      serviceAccountName: service-a
+      serviceAccountName: service-staging
       containers:
       - name: cloud-sdk
         image: google/cloud-sdk:latest
